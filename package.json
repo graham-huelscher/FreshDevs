@@ -1,0 +1,21 @@
+{
+  "name": "FreshDevs",
+  "version": "1.0.0",
+  "description": "FreshDevs Beta Program",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/graham-huelscher/FreshDevs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/graham-huelscher/FreshDevs/issues"
+  },
+  "homepage": "https://github.com/graham-huelscher/FreshDevs#readme"
+}
