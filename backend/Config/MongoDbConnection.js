@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connectionString = `mongodb+srv://${process.env.MongoAtlasId}:${process.env.MongoAtlasPassword}@cluster1-llxol.mongodb.net/chefmate?retryWrites=true`
+const connectionString = `mongodb+srv://${process.env.MongoAtlasId}:${process.env.MongoAtlasPassword}@maincluster-zqwsp.mongodb.net/test?retryWrites=true&w=majority`
 mongoose.connect(connectionString, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 
