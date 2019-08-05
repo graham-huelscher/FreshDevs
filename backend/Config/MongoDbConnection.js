@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-const connectionString = `mongodb+srv://${process.env.MongoAtlasId}:${process.env.MongoAtlasPassword}@maincluster-zqwsp.mongodb.net/test?retryWrites=true&w=majority`
+const connectionString = `mongodb+srv://${process.env.MongoAtlasId}:${process.env.MongoAtlasPassword}@maincluster-zqwsp.mongodb.net/main?retryWrites=true&w=majority`
 mongoose.connect(connectionString, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
+mongoose.set('useFindAndModify', false);
 
 // Tell Mongoose to use ES6 Promises for its promises
 mongoose.Promise = global.Promise;
