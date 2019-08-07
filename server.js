@@ -21,7 +21,11 @@ app.post('/user', async (req, res) => {
 })
 
 app.put('/user', async (req, res) => {
-  res.json(await DbController.updateUser(req.body))
+  const result = await DbController.updateUser(req.body)
+
+  if(result) console.log('User succesfully updated')
+  else console.log(`No user found under the name of ${req.body.oldName}`)
+  res.json(result)
 })
 
 app.get('*', (req, res) => {

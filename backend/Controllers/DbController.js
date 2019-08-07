@@ -2,23 +2,31 @@ const User = require('../models/User')
 
 const DbController = {
     addUser: async (userObj) => {
+        //create a new user using the User schema and the userObj sent from the client. Save this to the database and return true if successful and false+err if not
         const newUser = new User(userObj)
         try {
             await newUser.save()
             return { result: true }
-        } catch (err) {
+        } 
+        catch (err) {
             return { result: false, err }
         }
     },
     updateUser: async (updateObj) => {
         const filter = { name: updateObj.oldName }
         const update = { name: updateObj.newName }
-        const updatedUser = await User.findOneAndUpdate(filter, update, {
-            new: true,
-            upsert: true 
-        })
+        //parse out the updateObj into the name to look for (oldName) and the name that is going to be updated (newName)
+        try {
+            const updatedUser = await User.findOneAndUpdate(filter, update, {
+                new: true
+            })
 
-        return updatedUser
+            if(updatedUser) return updatedUser
+            else return false
+        } 
+        catch (err) {
+            return (err)
+        }
     }
 
 
