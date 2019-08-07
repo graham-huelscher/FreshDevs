@@ -6,5 +6,6 @@ The 'dotenv' package was used to provide the database login and password securel
 the .env file is in the format of:
 
 MongoAtlasId = 'yourid'
+
 MongoAtlasPassword = 'yourpassword'
 
