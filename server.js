@@ -13,6 +13,10 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.json("Online")
 })
+
+app.get('/user', async (req, res) => {
+  res.json(await DbController.getAll())
+})
 app.post('/user', async (req, res) => {
   const { result, err } = await DbController.addUser(req.body)
   if (result) console.log("\nUser successfully added")

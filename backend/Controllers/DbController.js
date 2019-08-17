@@ -27,6 +27,9 @@ const DbController = {
         catch (err) {
             return (err)
         }
+    },
+    getAll: async () => {
+       return await User.find({})
     }
 
 
