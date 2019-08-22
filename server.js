@@ -5,13 +5,18 @@ const bodyParser = require('body-parser')
 const port = process.env.PORT || process.argv[2] || 8080
 const mongoose = require('./backend/Config/MongoDBConnection')
 const DbController = require('./backend/Controllers/DbController')
+const UnsplashController = require('./backend/Controllers/UnsplashController')
 
 // Middleware
 app.use(bodyParser.json());
 
 // Routes
-app.get('/', (req, res) => {
-  res.json("Online")
+app.get('/', async (req, res) => {
+  res.json("Server online")
+})
+
+app.get('/unsplash', async (req, res) => {
+  res.json(await UnsplashController.getRandImg())
 })
 
 app.get('/user', async (req, res) => {
@@ -27,7 +32,7 @@ app.post('/user', async (req, res) => {
 app.put('/user', async (req, res) => {
   const result = await DbController.updateUser(req.body)
 
-  if(result) console.log('User succesfully updated')
+  if (result) console.log('User succesfully updated')
   else console.log(`No user found under the name of ${req.body.oldName}`)
   res.json(result)
 })
