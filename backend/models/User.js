@@ -8,7 +8,7 @@ const UserSchema = new Schema({
     required: true,
     unique: true
   },
-  unsplashId: {
+  imgURL: {
     type: String,
     required: true
   }
